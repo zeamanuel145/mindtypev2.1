@@ -8,17 +8,13 @@ const CreatePost = () => {
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
 
-    const payload = {
-      title,
-      summary,
-      content,
-      image,
-    };
+  const payload = { title, summary, content, image };
 
+  try {
     const res = await fetch('https://mindtypev2-1-0kjk.onrender.com/api/posts', {
       method: 'POST',
       headers: {
@@ -28,7 +24,10 @@ const CreatePost = () => {
       body: JSON.stringify(payload),
     });
 
-    const data = await res.json();
+    console.log('Response status:', res.status);
+
+    const data = await res.json().catch(() => null);
+    console.log('Response data:', data);
 
     if (res.ok) {
       setMessage('✅ Post created successfully');
@@ -37,9 +36,14 @@ const CreatePost = () => {
       setContent('');
       setImage('');
     } else {
-      setMessage(`❌ Error: ${data.message || 'Failed to create post'}`);
+      setMessage(`❌ Error: ${data?.message || 'Failed to create post'}`);
     }
-  };
+  } catch (error) {
+    console.error('Fetch error:', error);
+    setMessage(`❌ Network or unexpected error: ${error.message}`);
+  }
+};
+
 
   return (
     <div className="max-w-lg mx-auto mt-8">

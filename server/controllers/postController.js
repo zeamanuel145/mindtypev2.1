@@ -6,12 +6,17 @@ const mongoose = require('mongoose');
 // @route   POST /api/posts
 // @access  Private
 const createPost = async (req, res) => {
+
+  console.log('CreatePost called');
+  console.log('User:', req.user);          // check if user is set
+  console.log('Body:', req.body); 
   try {
     const { title, summary, content, image } = req.body;
     const userId = req.user.id;
 
     const newPost = new Post({ title, summary, content, image, author: userId });
     await newPost.save();
+    console.log('Post saved:', newPost);
 
     res.status(201).json(newPost);
   } catch (err) {

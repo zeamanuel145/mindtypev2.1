@@ -1,12 +1,13 @@
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
-import Hero from './components/Hero-section';;
-import BlogFeed from './pages/BlogFeed';
+import { Outlet } from 'react-router-dom';
 import Accessibility from './components/Accesibility-section';
 import ChatbotButton from './components/ChatbotButton';
 import Footer from './components/Footer';
+import Hero from './components/Hero-section';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 import { useSidebar } from './context/SidebarContext';
-import { Outlet } from 'react-router-dom';
+import BlogFeed from './pages/BlogFeed';
+;
 
 function App() {
   const { isSidebarOpen } = useSidebar();
@@ -19,7 +20,6 @@ function App() {
         <main className='pt-16'>
           <Outlet />
           <Hero />
-          
           <BlogFeed />
           <Accessibility />
           <Footer />
