@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_ENDPOINTS } from '../config/api';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -45,7 +46,7 @@ const Signup = () => {
     setFormErrors({});
 
     try {
-      const res = await fetch('https://mindtypev2-1-0kjk.onrender.com/api/auth/signup', {
+      const res = await fetch(API_ENDPOINTS.AUTH.SIGNUP, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password }),

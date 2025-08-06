@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
@@ -15,7 +16,7 @@ const CreatePost = () => {
   const payload = { title, summary, content, image };
 
   try {
-    const res = await fetch('https://mindtypev2-1-0kjk.onrender.com/api/posts', {
+    const res = await fetch(API_ENDPOINTS.POSTS.CREATE, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

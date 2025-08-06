@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_ENDPOINTS } from '../config/api';
 
 export default function PostPage() {
   const { id } = useParams();
@@ -14,7 +15,7 @@ export default function PostPage() {
     const fetchPost = async () => {
       try {
       
-        const res = await fetch(`https://mindtypev2-1-0kjk.onrender.com/api/posts/${id}`);
+        const res = await fetch(API_ENDPOINTS.POSTS.GET_BY_ID(id));
         if (!res.ok) throw new Error('Failed to fetch post');
         const data = await res.json();
         setPost(data);
@@ -33,7 +34,7 @@ export default function PostPage() {
     if (!commentText.trim()) return;
 
     try {
-      const res = await fetch(`https://mindtypev2-1-0kjk.onrender.com/api/posts/${id}/comments`, {
+      const res = await fetch(API_ENDPOINTS.POSTS.ADD_COMMENT(id), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

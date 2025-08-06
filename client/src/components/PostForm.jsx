@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_ENDPOINTS } from '../config/api';
 
 export default function PostForm({ isEdit }) {
   const [form, setForm] = useState({ title: '', summary: '', content: '', image: '' });
@@ -10,7 +11,7 @@ export default function PostForm({ isEdit }) {
 
   useEffect(() => {
     if (isEdit && id) {
-      fetch('https://mindtypev2-2.onrender.com/api/posts')
+      fetch(API_ENDPOINTS.POSTS.GET_ALL)
         .then((res) => res.json())
         .then((posts) => {
           const post = posts.find((p) => p._id === id);
@@ -34,8 +35,8 @@ export default function PostForm({ isEdit }) {
     e.preventDefault();
     const method = isEdit ? 'PUT' : 'POST';
     const url = isEdit
-      ? `https://mindtypev2-2.onrender.com/api/posts/${id}`
-      : 'https://mindtypev2-2.onrender.com/api/posts';
+      ? API_ENDPOINTS.POSTS.UPDATE(id)
+      : API_ENDPOINTS.POSTS.CREATE;
 
     try {
       const res = await fetch(url, {

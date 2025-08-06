@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaKey } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 
 const ResetPassword = () => {
   const [email, setEmail] = useState('');
@@ -9,25 +10,21 @@ const ResetPassword = () => {
 
   const handleReset = async (e) => {
     e.preventDefault();
-
     try {
-      const res = await fetch('https://mindtypev2-2.onrender.com/api/auth/reset-password', {
+      const res = await fetch(API_ENDPOINTS.AUTH.RESET_PASSWORD, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password: newPassword }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, newPassword }),
       });
 
       const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || 'Reset failed');
+      if (res.ok) {
+        setMessage('Password reset successful!');
+      } else {
+        setMessage(data.message || 'Reset failed');
       }
-
-      setMessage('Password successfully reset.');
-    } catch (err) {
-      setMessage(err.message || 'Failed to reset password.');
+    } catch (error) {
+      setMessage('Network error');
     }
   };
 

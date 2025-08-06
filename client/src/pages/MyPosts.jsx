@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_ENDPOINTS } from '../config/api';
 
 export default function MyPosts() {
   const [posts, setPosts] = useState([]);
@@ -12,7 +13,7 @@ export default function MyPosts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch('https://mindtypev2-1-0kjk.onrender.com/api/posts/mine', {
+        const res = await fetch(API_ENDPOINTS.POSTS.GET_MINE, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -36,7 +37,7 @@ export default function MyPosts() {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
 
     try {
-      const res = await fetch(`https://mindtypev2-1-0kjk.onrender.com/api/posts/${postId}`, {
+      const res = await fetch(API_ENDPOINTS.POSTS.DELETE(postId), {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${token}`,

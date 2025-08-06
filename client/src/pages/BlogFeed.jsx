@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import PostCard from './PostCard';
+import { API_ENDPOINTS } from '../config/api';
 
 const BlogFeed = () => {
   const [posts, setPosts] = useState([]);
@@ -8,7 +9,7 @@ const BlogFeed = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(`https://mindtypev2-1-0kjk.onrender.com/api/posts?page=${page}&limit=10`);
+        const res = await fetch(`${API_ENDPOINTS.POSTS.GET_ALL}?page=${page}&limit=10`);
         if (!res.ok) throw new Error('Failed to fetch posts');
         const data = await res.json();
         setPosts(data);

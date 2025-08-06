@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { API_ENDPOINTS } from '../config/api';
 
 const SinglePost = () => {
   const { id } = useParams();
@@ -10,9 +10,11 @@ const SinglePost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`/api/posts/${id}`);
-        console.log("Post received:", res.data);
-        setPost(res.data);
+        const res = await fetch(API_ENDPOINTS.POSTS.GET_BY_ID(id));
+        if (!res.ok) throw new Error('Failed to fetch post');
+        const data = await res.json();
+        console.log("Post received:", data);
+        setPost(data);
       } catch (err) {
         console.error("Failed to load post:", err);
         setError("Failed to load post");
