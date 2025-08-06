@@ -4,9 +4,9 @@ const { createPost, updatePost, deletePost, getPosts, getPostById, addCommentToP
 const authMiddleware = require('../middleware/authMiddleware');
 
 //Private
-router.post('/', authMiddleware, createPost);
-router.put('/:id', authMiddleware, updatePost);
-router.delete('/:id', authMiddleware, deletePost);
+router.post('/', createPost);
+router.put('/:id', updatePost);
+router.delete('/:id', deletePost);
 router.get('/mine', authMiddleware, getMyPosts);
 router.post('/:id/comments', authMiddleware, addCommentToPost);
 
