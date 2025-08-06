@@ -52,6 +52,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               }
             />
             <Route
+              path="/dashboard/my-posts"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <MyPosts />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
               path="/create-post"
               element={
                 <ProtectedRoute>
