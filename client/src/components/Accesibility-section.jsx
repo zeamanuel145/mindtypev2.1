@@ -3,20 +3,20 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
   {
-    src: "",
-    alt: ""
+    src: "../assets/accessibility-image.jpg",
+    alt: "accessibility image"
   },
   {
-    src: "",
-    alt: ""
+    src: "../assets/accessibility-image-1.jpg",
+    alt: "accessibility image"
   },
   {
-    src: "",
-    alt: ""
+    src: "../assets/accessibility-image-2.jpg",
+    alt: "accessibility image"
   },
   {
-    src: "",
-    alt: ""
+    src: "../assets/accessibility-image-3.jpg",
+    alt: "accessibility image"
   }
 ];
 
