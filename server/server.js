@@ -15,11 +15,13 @@ connectDB();
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (
-      /^https:\/\/mindtypev2-1\.vercel\.app$/.test(origin) ||
-      /^http:\/\/localhost:\d+$/.test(origin)
-    ) {
+    // Allow localhost (dev)
+    const localhost = /^http:\/\/localhost:5173$/;
+
+    // Allow all Vercel environments for your project
+    const vercelRegex = /^https:\/\/mindtypev2-1(?:-[\w-]+)?\.vercel\.app$/;
+
+    if (!origin || localhost.test(origin) || vercelRegex.test(origin)) {
       callback(null, true);
     } else {
       console.log('❌ Blocked CORS request from:', origin);
