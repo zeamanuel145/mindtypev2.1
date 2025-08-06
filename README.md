@@ -1,5 +1,15 @@
-# Client Configuration
+members 
+1 zeamanuel fetene 
+2 robel
+3 eric 
+4 nuhamin
+5 bontu
 
+
+# Client Configuration
+cd client
+npm install
+npm run dev
 ## API Configuration
 
 The client now uses a centralized API configuration. To change the API URL:
@@ -39,3 +49,7 @@ If you're experiencing CORS issues:
 - If you see CORS errors, check the browser console for the exact URL being requested
 - Make sure all components are using the centralized API configuration
 - Clear browser cache if you're testing changes 
+
+
+front-end  =  https://mindtypev2-1.vercel.app/
+back-end = https://mindtypev2-1-0kjk.onrender.com
