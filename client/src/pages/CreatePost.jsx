@@ -2,7 +2,9 @@ import { useState } from 'react';
 
 const CreatePost = () => {
   const [title, setTitle] = useState('');
+  const [summary, setSummary] = useState(''); 
   const [content, setContent] = useState('');
+  const [image, setImage] = useState('');     
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -10,13 +12,20 @@ const CreatePost = () => {
 
     const token = localStorage.getItem('token');
 
+    const payload = {
+      title,
+      summary,
+      content,
+      image,
+    };
+
     const res = await fetch('https://mindtypev2-1-0kjk.onrender.com/api/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ title, content }),
+      body: JSON.stringify(payload),
     });
 
     const data = await res.json();
@@ -24,7 +33,9 @@ const CreatePost = () => {
     if (res.ok) {
       setMessage('✅ Post created successfully');
       setTitle('');
+      setSummary('');
       setContent('');
+      setImage('');
     } else {
       setMessage(`❌ Error: ${data.message || 'Failed to create post'}`);
     }
@@ -42,6 +53,21 @@ const CreatePost = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
+        />
+        <input
+          type="text"
+          placeholder="Summary"
+          className="w-full p-2 border rounded"
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+          required
+        />
+        <input
+          type="text"
+          placeholder="Image URL"
+          className="w-full p-2 border rounded"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
         />
         <textarea
           placeholder="Content"
