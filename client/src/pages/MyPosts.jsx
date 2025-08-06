@@ -12,7 +12,7 @@ export default function MyPosts() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch('http://mindtypev2-1-0kjk.onrender.com/api/posts/mine', {
+        const res = await fetch('https://mindtypev2-1-0kjk.onrender.com/api/posts/mine', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

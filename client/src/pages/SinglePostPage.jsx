@@ -14,7 +14,7 @@ export default function PostPage() {
     const fetchPost = async () => {
       try {
       
-        const res = await fetch(`http://mindtypev2-1-0kjk.onrender.com/api/posts/${id}`);
+        const res = await fetch(`https://mindtypev2-1-0kjk.onrender.com/api/posts/${id}`);
         if (!res.ok) throw new Error('Failed to fetch post');
         const data = await res.json();
         setPost(data);
