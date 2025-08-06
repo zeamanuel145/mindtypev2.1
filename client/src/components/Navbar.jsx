@@ -77,11 +77,11 @@ export default function Navbar() {
               <Link to="/" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors duration-200">
                 Home
               </Link>
-              <Link to="/articles" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors duration-200">
-                Articles
-              </Link>
               <Link to="/about" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors duration-200">
                 About
+              </Link>
+              <Link to="/aboutposts" className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors duration-200">
+                ALL Post
               </Link>
             </div>
           </div>
@@ -119,14 +119,14 @@ export default function Navbar() {
             {isLoggedIn ? (
               <button
                 onClick={handleLogout}
-                className="px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-colors duration-200 font-medium"
+                className="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors duration-200 font-medium"
               >
                 LOGOUT
               </button>
             ) : (
               <Link
                 to="/login"
-                className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 font-medium"
+                className="px-6 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-200 font-medium"
               >
                 LOGIN
               </Link>

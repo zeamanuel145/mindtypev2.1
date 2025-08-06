@@ -12,7 +12,7 @@ import BlogFeed from "./pages/BlogFeed";
 import MyPosts from './pages/MyPosts';
 import SinglePostPage from './pages/SinglePostPage';
 import PostForm from './components/PostForm';
-import ChatbotPage from './pages/ChatbotPage'; // Add this import
+import ChatbotPage from './pages/ChatbotPage'; 
 import { AuthProvider } from "./context/AuthContext";
 import { SidebarProvider } from './context/SidebarContext';
 import './index.css';

@@ -26,26 +26,11 @@ const BlogFeed = () => {
 
   return (
     <div className="max-w-6xl mx-auto bg-white dark:bg-gray-900 py-16">
-      <h2 className='font-bold text-3xl m-20'>EXPLORE OUR FEED</h2>
+      <h2 className='font-bold text-3xl m-20'>SEE <span className='text-gray-500'> WHAT PEOPLE </span>POSTED</h2>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 px-2">
         {posts.map(post => (
           <PostCard key={post._id} post={post} />
         ))}
-      </div>
-
-      <div className="flex justify-center mt-6 space-x-4">
-        <button
-          onClick={() => setPage(p => Math.max(1, p - 1))}
-          className="px-4 py-2 bg-gray-300 dark:bg-gray-600 rounded hover:bg-gray-400"
-        >
-          Prev
-        </button>
-        <button
-          onClick={() => setPage(p => p + 1)}
-          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-        >
-          Next
-        </button>
       </div>
     </div>
   );
