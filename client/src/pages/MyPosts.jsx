@@ -5,10 +5,10 @@ import { API_ENDPOINTS } from '../config/api';
 
 export default function MyPosts() {
   const [posts, setPosts] = useState([]);
-  const { token } = useAuth();
   const navigate = useNavigate();
 
-  const userId = JSON.parse(localStorage.getItem('user'))?.id;
+ 
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchPosts = async () => {
