@@ -60,8 +60,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Handle preflight requests explicitly
-app.options('*', cors(corsOptions));
 
 // Additional headers for all responses
 app.use((req, res, next) => {
