@@ -14,7 +14,8 @@ connectDB();
 
 
 const allowedOrigins = [
-  'http://localhost:5173',              // Local dev
+  'http://localhost:5173',
+  'https://mindtypev2-1.vercel.app/',              // Local dev
   
 ];
 
