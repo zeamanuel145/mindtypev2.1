@@ -49,7 +49,7 @@ export default function PostForm({ isEdit }) {
       });
 
       if (res.ok) {
-        navigate('/dashboard/my-posts');
+        navigate('/my-posts');
       } else {
         alert('Failed to submit post');
       }
