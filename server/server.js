@@ -13,17 +13,24 @@ const PORT = process.env.PORT || 3500;
 connectDB();
 
 
-const allowedOrigins = [
-  'http://localhost:5173', 
-  'https://mindtypev2-1.vercel.app',             
-  
-];
-
-// Enable CORS for frontend
-app.use(cors({
-  origin: allowedOrigins,
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (
+      /^https:\/\/mindtypev2-1\.vercel\.app$/.test(origin) ||
+      /^http:\/\/localhost:\d+$/.test(origin)
+    ) {
+      callback(null, true);
+    } else {
+      console.log('❌ Blocked CORS request from:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
+
 
 //  Middleware
 app.use(express.json());
