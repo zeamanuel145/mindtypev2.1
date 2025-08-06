@@ -19,13 +19,13 @@ export default function Hero() {
     <div className="flex flex-col md:flex-row items-center gap-4 mt-4">
       <Link
         to="/signup"
-        className="w-60 px-4 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition"
+        className="w-60 px-4 py-3 bg-gray-600 text-white text-center rounded-lg hover:bg-gray-700 transition"
       >
         SIGNUP
       </Link>
       <Link
         to="./create-post"
-        className="w-60 px-4 py-3 bg-blue-600 text-white text-center rounded-lg hover:bg-blue-700 transition"
+        className="w-60 px-4 py-3 bg-gray-600 text-white text-center rounded-lg hover:bg-gray-700 transition"
       >
         create post
       </Link>
