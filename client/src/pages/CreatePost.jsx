@@ -10,7 +10,7 @@ const CreatePost = () => {
 
     const token = localStorage.getItem('token');
 
-    const res = await fetch('http://localhost:3500/api/posts', {
+    const res = await fetch('http://mindtypev2-1-0kjk.onrender.com/api/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

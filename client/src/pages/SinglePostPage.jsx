@@ -14,7 +14,7 @@ export default function PostPage() {
     const fetchPost = async () => {
       try {
       
-        const res = await fetch(`http://localhost:3500/api/posts/${id}`);
+        const res = await fetch(`http://mindtypev2-1-0kjk.onrender.com/api/posts/${id}`);
         if (!res.ok) throw new Error('Failed to fetch post');
         const data = await res.json();
         setPost(data);
@@ -33,7 +33,7 @@ export default function PostPage() {
     if (!commentText.trim()) return;
 
     try {
-      const res = await fetch(`https://mindtypev2-2.onrender.com/api/posts/${id}/comments`, {
+      const res = await fetch(`https://mindtypev2-1-0kjk.onrender.com/api/posts/${id}/comments`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
