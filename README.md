@@ -1,9 +1,9 @@
 members 
-1 zeamanuel fetene 
-2 robel
-3 eric 
-4 nuhamin
-5 bontu
+1 zeamanuel fetene = full stack
+2 robel = fullstack
+3 eric = gen ai
+4 nuhamin = ui
+5 bontu = ui
 
 
 # Client Configuration
